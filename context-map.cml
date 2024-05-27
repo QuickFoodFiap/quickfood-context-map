@@ -22,7 +22,7 @@ ContextMap QuickDoofContextMap {
 		implementationTechnology = "REST"
 	}
 
-	PagamentoContext [D]<-[U] MercadoPagoContext {
+	PagamentoContext [D,CF,ACL]<-[U] MercadoPagoContext {
 		implementationTechnology = "REST"
 	}
 	PagamentoContext [U]->[D] EntregaDoPedidoContext {

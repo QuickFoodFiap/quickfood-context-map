@@ -1,0 +1,66 @@
+ContextMap QuickDoofContextMap {
+	type = SYSTEM_LANDSCAPE
+	state = TO_BE
+	
+	contains IdentificacaoContext
+	contains CriacaoDoPedidoContext
+	contains PagamentoContext
+  contains CozinhaContext
+	contains EntregaDoPedidoContext
+	contains MercadoPagoContext
+	
+	CriacaoDoPedidoContext [U]->[D] IdentificacaoContext {
+		implementationTechnology = "REST"
+	}
+	CriacaoDoPedidoContext [D,ACL]<-[U,OHS,PL] PagamentoContext {
+		implementationTechnology = "REST"
+		downstreamRights=INFLUENCER
+	}
+	PagamentoContext [U]->[D] CozinhaContext {
+		implementationTechnology = "REST"
+	}
+	CozinhaContext [U]->[D] EntregaDoPedidoContext {
+		implementationTechnology = "REST"
+	}
+
+	PagamentoContext [D,CF]<-[U] MercadoPagoContext {
+		implementationTechnology = "REST"
+	}
+	PagamentoContext [U]->[D] EntregaDoPedidoContext {
+		implementationTechnology = "REST"
+	}
+}
+
+BoundedContext IdentificacaoContext implements IdenticacaoDomain
+
+BoundedContext PagamentoContext implements PagamentoDomain
+
+BoundedContext CriacaoDoPedidoContext implements CriacaoDoPedidoDomain
+
+BoundedContext CozinhaContext implements CozinhaDomain
+
+BoundedContext EntregaDoPedidoContext implements EntregaDoPedidoDomain
+
+BoundedContext MercadoPagoContext implements MercadoPagoContext
+
+
+Domain QuickFoodDomain {
+  Subdomain IdenticacaoDomain {
+		type = GENERIC_SUBDOMAIN
+	}
+  Subdomain CriacaoDoPedidoDomain {
+		type = CORE_DOMAIN
+	}
+  Subdomain PagamentoDomain {
+		type = SUPPORTING_DOMAIN
+	}
+  Subdomain CozinhaDomain {
+		type = CORE_DOMAIN
+	}	
+  Subdomain EntregaDoPedidoDomain {
+		type = GENERIC_SUBDOMAIN
+	}
+  Subdomain MercadoPagoContext {
+		type = SUPPORTING_DOMAIN
+	}
+}

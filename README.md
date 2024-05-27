@@ -13,4 +13,4 @@ Mepeamento dos contextos delimitados do domínio QuiciFood.
 - EntregaDoPedidoDomain - Generic subdomain
 - MercadoPagoContext - Suport domain
 
-![alt text](context-map_ContextMap.png)
+![alt text](context-map.png)

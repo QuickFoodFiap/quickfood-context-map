@@ -12,9 +12,8 @@ ContextMap QuickDoofContextMap {
 	CriacaoDoPedidoContext [U]->[D] IdentificacaoContext {
 		implementationTechnology = "REST"
 	}
-	CriacaoDoPedidoContext [D,ACL]<-[U,OHS,PL] PagamentoContext {
+	CriacaoDoPedidoContext [D]<-[U] PagamentoContext {
 		implementationTechnology = "REST"
-		downstreamRights=INFLUENCER
 	}
 	PagamentoContext [U]->[D] CozinhaContext {
 		implementationTechnology = "REST"
@@ -23,7 +22,7 @@ ContextMap QuickDoofContextMap {
 		implementationTechnology = "REST"
 	}
 
-	PagamentoContext [D,CF]<-[U] MercadoPagoContext {
+	PagamentoContext [D]<-[U] MercadoPagoContext {
 		implementationTechnology = "REST"
 	}
 	PagamentoContext [U]->[D] EntregaDoPedidoContext {

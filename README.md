@@ -2,7 +2,7 @@
 
 # Intro
 
-Mepeamento dos contextos delimitados do domínio QuiciFood.
+Mepeamento dos contextos delimitados do domínio QuickFood.
 
 ## Domínios e subdomínios
 
